@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jogar NES</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; overflow: hidden; }
+        #game-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+    </style>
+    <script src="https://unpkg.com/nostalgist"></script>
+</head>
+<body>
+    <div id="game-container">A carregar o teu cartucho...</div>
+    <script>
+        window.onload = async function() {
+            try {
+                // ATENÇÃO: Substitui abaixo pelo nome exato da tua ROM!
+                await Nostalgist.nes('Super Mario Bros. (World).nes');
+            } catch (error) {
+                document.getElementById('game-container').innerHTML = "Erro ao carregar o jogo.";
+                document.getElementById('game-container').style.color = "white";
+            }
+        };
+    </script>
+</body>
+</html>
